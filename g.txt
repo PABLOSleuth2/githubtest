@@ -1,0 +1,291 @@
+2025/10/22 14:30:01.168|INFO|Logging started on 2025/10/22 14:30:01.155 ||
+2025/10/22 14:30:01.174|INFO|Scanning for hardware changes ||
+2025/10/22 14:30:01.307|INFO|Installer version: 1.0.1084.3 ||
+2025/10/22 14:30:01.314|INFO|Installer initial executable path: "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Installer.exe" ||
+2025/10/22 14:30:01.314|INFO|Installer main executable path: "C:\Users\Ersul\AppData\Local\Temp\Intel\Installer\Installer.exe" ||
+2025/10/22 14:30:01.314|INFO|Installer parent process module path: "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Installer.exe" ||
+2025/10/22 14:30:01.314|WARN|Could not find parent process for explorer ||
+2025/10/22 14:30:01.314|INFO|Installer startup type: Undefined ||
+2025/10/22 14:30:01.314|INFO|Installer root directory: "C:\Users\Ersul\AppData\Local\Temp\Intel\Installer\" ||
+2025/10/22 14:30:01.314|INFO|Command line arguments: C:\Users\Ersul\Downloads\gfx_win_101.7076.exe ||
+2025/10/22 14:30:01.314|INFO|Language of the user interface: [en-US] ||
+2025/10/22 14:30:01.314|INFO|Operating system specification: Microsoft Windows NT 10.0.26100.0 ||
+2025/10/22 14:30:01.314|INFO|Operating system boot time: 2025-10-22 13:55:39 ||
+2025/10/22 14:30:01.314|INFO|Operating system boot mode: Normal ||
+2025/10/22 14:30:01.486|INFO|CPU base clock: 1114Mhz ||
+2025/10/22 14:30:01.486|INFO|Test Signing: OFF ||
+2025/10/22 14:30:01.486|INFO|Windows Media Player status: Not installed ||
+2025/10/22 14:30:01.486|INFO|Non-Interactive mode flag: False ||
+2025/10/22 14:30:01.577|INFO|Bitlocker protection status: PROTECTION_OFF ||
+2025/10/22 14:30:01.577|INFO|Smart App Control status: SACStatus_Evaluation ||
+2025/10/22 14:30:01.577|INFO|Setting admin access rights - Directory: C:\Users\Ersul\AppData\Local\Temp\Intel\Installer\. ||
+2025/10/22 14:30:01.577|INFO|Setting admin access rights - DONE ||
+2025/10/22 14:30:02.009|INFO|
+INF files in installer location:
+{
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\DisplayAudio\11.2\IntcDAud.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\cui_dch.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\MiniCtaDriver\MiniCtaDriver.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\GSCAuxDriver.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\gscheci.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\HdBusExt.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\iigd_dch.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\iigd_dch_d.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\memcntrl.inf",
+	"C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\MSHdaDac.inf",
+}
+ ||
+2025/10/22 14:30:02.074|INFO|Gen12+ platform: False ||
+2025/10/22 14:30:02.074|INFO|Dynamic background: False ||
+2025/10/22 14:30:02.078|INFO|"Installer" process priority class: High ||
+2025/10/22 14:30:02.670|INFO|Creating event object with name "Global\IntelGfxInstallerUIRendered"... ||
+2025/10/22 14:30:02.670|INFO|Creating event object with name "Global\IntelGfxInstallerUIRendered" - DONE ||
+2025/10/22 14:30:02.720|INFO|Received signal from "Global\IntelGfxInstallerUIRendered" ||
+2025/10/22 14:30:02.906|INFO|
+Supported INF files in DriverStore:
+{
+}
+ ||
+2025/10/22 14:30:02.906|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DA3&SUBSYS_1B821043&REV_01\3&11583659&0&FC". The device does not exist. ||
+2025/10/22 14:30:02.906|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DA8&SUBSYS_1B821043&REV_01\3&11583659&0&F0". The device does not exist. ||
+2025/10/22 14:30:02.906|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4E03&SUBSYS_1B821043&REV_00\3&11583659&0&20". The device does not exist. ||
+2025/10/22 14:30:05.005|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4E11&SUBSYS_1B821043&REV_00\3&11583659&0&40". The device does not exist. ||
+2025/10/22 14:30:06.910|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DA4&SUBSYS_1B821043&REV_01\3&11583659&0&FD". The device does not exist. ||
+2025/10/22 14:30:07.409|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DE0&SUBSYS_1B821043&REV_01\3&11583659&0&B0". The device does not exist. ||
+2025/10/22 14:30:07.409|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DE8&SUBSYS_1B821043&REV_01\3&11583659&0&A8". The device does not exist. ||
+2025/10/22 14:30:07.907|WARN|Cannot find compatible drivers for device with device instance id "PCI\VEN_8086&DEV_4DAA&SUBSYS_1B821043&REV_01\3&11583659&0&F2". The device does not exist. ||
+2025/10/22 14:30:08.406|INFO|
+
+Intel devices with matching INF files:
+{
+  {
+    Device
+    {
+      Device name: SM Bus Controller
+      Device instance path: PCI\VEN_8086&DEV_4DA3&SUBSYS_1B821043&REV_01\3&11583659&0&FC
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Simple Communications Controller
+      Device instance path: PCI\VEN_8086&DEV_4DA8&SUBSYS_1B821043&REV_01\3&11583659&0&F0
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Data Acquisition and Signal Processing Controller
+      Device instance path: PCI\VEN_8086&DEV_4E03&SUBSYS_1B821043&REV_00\3&11583659&0&20
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: High Definition Audio Device
+      Device instance path: HDAUDIO\FUNC_01&VEN_8086&DEV_281A&SUBSYS_80860101&REV_1000\4&36CAD0C1&0&0201
+      Device manufacturer: Microsoft
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\hdaudio.inf_amd64_22f2127ec785fb8d\hdaudio.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Express Root Port
+      Device instance path: PCI\VEN_8086&DEV_4DBC&SUBSYS_1B821043&REV_01\3&11583659&0&E4
+      Device manufacturer: (Standard system devices)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\pci.inf_amd64_52654f04699d27c9\pci.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: High Definition Audio Controller
+      Device instance path: PCI\VEN_8086&DEV_4DC8&SUBSYS_126F1043&REV_01\3&11583659&0&FB
+      Device manufacturer: Microsoft
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\hdaudbus.inf_amd64_d886b1bec10cb155\hdaudbus.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: Base System Device
+      Device instance path: PCI\VEN_8086&DEV_4E11&SUBSYS_1B821043&REV_00\3&11583659&0&40
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Express Root Port
+      Device instance path: PCI\VEN_8086&DEV_4DB8&SUBSYS_1B821043&REV_01\3&11583659&0&E0
+      Device manufacturer: (Standard system devices)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\pci.inf_amd64_52654f04699d27c9\pci.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI standard host CPU bridge
+      Device instance path: PCI\VEN_8086&DEV_4E22&SUBSYS_1B821043&REV_00\3&11583659&0&00
+      Device manufacturer: (Standard system devices)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\machine.inf_amd64_d807fc8146278f4c\machine.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: Intel(R) Power Engine Plug-in
+      Device instance path: ACPI\INT33A1\1
+      Device manufacturer: Intel Corporation
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\intelpep.inf_amd64_902e3eb4096d3310\intelpep.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Device
+      Device instance path: PCI\VEN_8086&DEV_4DA4&SUBSYS_1B821043&REV_01\3&11583659&0&FD
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI standard RAM Controller
+      Device instance path: PCI\VEN_8086&DEV_4DEF&SUBSYS_1B821043&REV_01\3&11583659&0&A2
+      Device manufacturer: (Standard system devices)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\machine.inf_amd64_d807fc8146278f4c\machine.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Simple Communications Controller
+      Device instance path: PCI\VEN_8086&DEV_4DE0&SUBSYS_1B821043&REV_01\3&11583659&0&B0
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Device
+      Device instance path: PCI\VEN_8086&DEV_4DE8&SUBSYS_1B821043&REV_01\3&11583659&0&A8
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI standard ISA bridge
+      Device instance path: PCI\VEN_8086&DEV_4D87&SUBSYS_1B821043&REV_01\3&11583659&0&F8
+      Device manufacturer: (Standard system devices)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\machine.inf_amd64_d807fc8146278f4c\machine.inf
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: PCI Device
+      Device instance path: PCI\VEN_8086&DEV_4DAA&SUBSYS_1B821043&REV_01\3&11583659&0&F2
+      Device manufacturer: NULL
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: "NULL"
+    All matching Installer INF files: "NULL"
+  }
+  {
+    Device
+    {
+      Device name: Microsoft Basic Display Adapter
+      Device instance path: PCI\VEN_8086&DEV_4E55&SUBSYS_197C1043&REV_01\3&11583659&0&10
+      Device manufacturer: (Standard display types)
+    }
+    All matching/supported Driver Store INF files: "NULL"
+    INF file in use by device: C:\WINDOWS\System32\DriverStore\FileRepository\display.inf_amd64_34a28de3c87d810f\display.inf
+    All matching Installer INF files: "NULL"
+  }
+}
+ ||
+2025/10/22 14:30:16.654|INFO|No legacy software detected. Skipping removal process. ||
+2025/10/22 14:30:16.654|INFO|
+Components:
+{
+	Intel® Graphics Driver, InstallerVersion = Unavailable, ExistingVersion = Unavailable
+	oneAPI Level Zero, InstallerVersion = 1.24.0, ExistingVersion = Unavailable
+	Intel® Driver Support Assistant, InstallerVersion = 25.4.36.6, ExistingVersion = Unavailable
+	Intel® Computing Improvement Program, InstallerVersion = 2.4.11001, ExistingVersion = Unavailable
+	Intel® Graphics Software & Drivers Uninstaller, InstallerVersion = , ExistingVersion = 
+	Intel® Graphics Software, InstallerVersion = 25.32.1758.2, ExistingVersion = Unavailable
+}
+ ||
+2025/10/22 14:30:16.654|INFO|Checking for other driver installations, not triggered by the installer. ||
+2025/10/22 14:30:16.654|INFO|No other driver installations. ||
+2025/10/22 14:30:16.654|INFO|Blocking Windows Update... ||
+2025/10/22 14:30:18.757|INFO|Could not stop the "wuauserv" service in a timely fashion. Killing the service... ||
+2025/10/22 14:30:19.057|INFO|Killing the service - DONE ||
+2025/10/22 14:30:19.057|INFO|Blocking Windows Update - DONE ||
+2025/10/22 14:30:20.597|INFO|The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\DisplayAudio\11.2\IntcDAud.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\cui_dch.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\MiniCtaDriver\MiniCtaDriver.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\GSCAuxDriver.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\gscheci.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\HdBusExt.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\iigd_dch.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\iigd_dch_d.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\memcntrl.inf". Details: "The operation completed successfully."
+The driver is signed correctly. Path = "C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Graphics\MSHdaDac.inf". Details: "The operation completed successfully."
+ ||
+2025/10/22 14:30:20.607|INFO|
+Files in Extras folder.
+{
+	C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Resources\Extras\Intel-Driver-and-Support-Assistant-Installer.exe,
+	C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Resources\Extras\IntelGraphicsSoftware_25.32.1758.2_Release.exe,
+	C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Resources\Extras\oneAPI_Level_Zero-1.24.0-win64.msi,
+	C:\Users\Ersul\AppData\Local\Temp\RarSFX0\Resources\Extras\WIN_DCA_2.4.0.11001_sursvc_qh.msi
+}
+ ||
+2025/10/22 14:30:21.155|INFO|Extras digital signature check took 0.537807 sec. ||
+2025/10/22 14:30:21.155|ERROR|Could not find driver file. ||
+2025/10/22 14:30:21.155|INFO|FW update service prerequisites check... ||
+2025/10/22 14:30:21.155|WARN|No supported devices by the driver. Skipping FW update service prerequisites check. ||
