@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multimedia Test - Old School</title>
+</head>
+<body>
+
+    <h1>2.8 HTML Multimedia Capabilities</h1>
+    <p>Bruh, check out these examples straight from the docs you sent.</p>
+
+    <h3>1. Audio Embed (console style)</h3>
+    <EMBED 
+        SRC="nature.wav" 
+        WIDTH="300" 
+        HEIGHT="60" 
+        CONTROLS="console" 
+        AUTOSTART="false" 
+        LOOP="false">
+    </EMBED>
+
+    <hr>
+
+    <h3>2. Background Sound (Invisible)</h3>
+    <p>If you were on IE back in the day, you'd hear music right now.</p>
+    <BGSOUND SRC="Akbakai.mp3" LOOP="3">
+
+    <hr>
+
+    <h3>3. Hyperlink to Audio</h3>
+    <p>Click this to play the song manually:</p>
+    <A HREF="Akbakai.mp3">Play the Song (Akbakai)</A>
+
+    <hr>
+
+    <h3>4. Video inside an Image tag (DYNSRC)</h3>
+    <p>Hover over this to play (Old IE only):</p>
+    <IMG 
+        DYNSRC="FILE1.AVI" 
+        SRC="placeholder.jpg" 
+        START="MOUSEOVER" 
+        LOOP="2"
+        ALT="Video clip">
+
+    <hr>
+
+    <h3>5. Video Embed (QuickTime style)</h3>
+    <EMBED 
+        SRC="cool.mov" 
+        WIDTH="160" 
+        HEIGHT="120" 
+        AUTOPLAY="false">
+    </EMBED>
+
+    <hr>
+
+    <h3>6. PDF Embed</h3>
+    <EMBED 
+        SRC="js.pdf" 
+        WIDTH="500" 
+        BORDER="0" 
+        ALIGN="left">
+
+</body>
+</html>
