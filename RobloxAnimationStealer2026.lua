@@ -2,34 +2,12 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
 
 local player = Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local humanoid = character:WaitForChild("Humanoid")
-local animator = humanoid:WaitForChild("Animator")
 
-local rawDefaultData = {
-    -- R15 Data
-    "507766666", "507766951", "507766388", "507777826", "507767714",
-    "507784897", "507785072", "507765000", "507767968", "507765644",
-    "2506281703", "507768375", "522635514", "522638767", "507770239",
-    "507770453", "507771019", "507771955", "507772104", "507776043",
-    "507776720", "507776879", "507777268", "507777451", "507777623",
-    "507770818", "507770677", "10921259953", "10921159222", "10921160088", 
-    "9801814462", "9803605108", 
-    -- R6 Data
-    "180435571", "180435792", "180426354", "125750702", "180436148",
-    "180436334", "178130996", "182393478", "129967390", "129967478",
-    "128777973", "128853357", "182435998", "182491037", "182491065",
-    "182436842", "182491248", "182491277", "182436935", "182491368",
-    "182491423", "129423131", "129423030",
-}
-
+local character = nil
 local defaultIds = {}
-for _, id in ipairs(rawDefaultData) do
-    defaultIds[id] = true
-end
-
 local isRecording = false
 local recordingConnection = nil
 local currentSequence = nil
@@ -46,9 +24,7 @@ local function getStorageFolder()
 end
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    
     if gameProcessed then return end 
-
     if input.KeyCode == Enum.KeyCode.LeftBracket then
         local folder = ReplicatedStorage:FindFirstChild("SavedAnims")
         if folder then
@@ -56,6 +32,75 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
         end
     end
 end)
+
+local function getNotificationContainer()
+    local gui = player.PlayerGui:FindFirstChild("AnimCaptureNotifs")
+    if not gui then
+        gui = Instance.new("ScreenGui")
+        gui.Name = "AnimCaptureNotifs"
+        gui.ResetOnSpawn = false
+        gui.Parent = player.PlayerGui
+        
+        local container = Instance.new("Frame")
+        container.Name = "ListContainer"
+        container.Size = UDim2.new(0, 300, 1, -20)
+        container.Position = UDim2.new(1, -320, 0, 0)
+        container.BackgroundTransparency = 1
+        container.Parent = gui
+        
+        local layout = Instance.new("UIListLayout")
+        layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+        layout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+        layout.Padding = UDim.new(0, 10)
+        layout.Parent = container
+    end
+    return gui.ListContainer
+end
+
+local function sendNotification(message)
+    local container = getNotificationContainer()
+    
+    local wrapper = Instance.new("Frame")
+    wrapper.Size = UDim2.new(0, 300, 0, 60)
+    wrapper.BackgroundTransparency = 1
+    wrapper.Parent = container
+    
+    local visFrame = Instance.new("Frame")
+    visFrame.Size = UDim2.new(1, 0, 1, 0)
+    visFrame.Position = UDim2.new(1, 50, 0, 0)
+    visFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    visFrame.Parent = wrapper
+    
+    Instance.new("UICorner", visFrame).CornerRadius = UDim.new(0, 8)
+    local stroke = Instance.new("UIStroke", visFrame)
+    stroke.Color = Color3.fromRGB(80, 220, 80)
+    stroke.Thickness = 2
+    
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, -20, 1, 0)
+    textLabel.Position = UDim2.new(0, 10, 0, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = message
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.Font = Enum.Font.GothamBold
+    textLabel.TextSize = 14
+    textLabel.TextWrapped = true
+    textLabel.TextXAlignment = Enum.TextXAlignment.Left
+    textLabel.Parent = visFrame
+    
+    local tweenInfoIn = TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out)
+    local tweenIn = TweenService:Create(visFrame, tweenInfoIn, {Position = UDim2.new(0, 0, 0, 0)})
+    tweenIn:Play()
+    
+    task.delay(3.5, function()
+        local tweenInfoOut = TweenInfo.new(0.4, Enum.EasingStyle.Quint, Enum.EasingDirection.In)
+        local tweenOut = TweenService:Create(visFrame, tweenInfoOut, {Position = UDim2.new(1, 50, 0, 0)})
+        tweenOut:Play()
+        
+        tweenOut.Completed:Wait()
+        wrapper:Destroy()
+    end)
+end
 
 local function showStartupWarning()
     local playerGui = player:WaitForChild("PlayerGui")
@@ -95,7 +140,7 @@ local function showStartupWarning()
     bodyText.Size = UDim2.new(1, -40, 1, -140)
     bodyText.Position = UDim2.new(0, 20, 0, 70)
     bodyText.Text = "This script turns off looping when running a custom animation to extract the absolute truth of the track.\n\n" ..
-                    "If it accidentally saves default Roblox animations, use DEX Explorer, find the Animation ID, and put it in the script's TABLE!\n\n" ..
+                    "It dynamically scrapes your character's default animations and ignores them.\n\n" ..
                     "TUTORIAL:\n" ..
                     "1. Run a custom animation (dance, emotes, etc.) and wait until it finishes.\n" ..
                     "2. When prompted, click YES to save using saveinstance().\n" ..
@@ -195,6 +240,8 @@ local function showConfirmGui(sequence)
 end
 
 local function captureFrame(currentTime)
+    if not character then return end 
+
     local relativeTime = currentTime - startTime
     local keyframe = Instance.new("Keyframe")
     keyframe.Time = relativeTime
@@ -231,45 +278,92 @@ local function captureFrame(currentTime)
         poses[rootPart].Parent = keyframe
     end
 end
-animator.AnimationPlayed:Connect(function(track)
-    local animId = track.Animation.AnimationId
-    local numId = string.match(animId, "%d+")
-    
-    if (numId and defaultIds[numId]) or defaultIds[animId] then return end
-    if isRecording then return end
-    isRecording = true
 
-    local wasOriginallyLooped = track.Looped
-    
-    track:Stop()
-    track.Looped = false
-    track.TimePosition = 0 
-
-    track:Play()
-
-    currentSequence = Instance.new("KeyframeSequence")
-    currentSequence.Name = character.Name .. "_Dump_" .. (numId or "Custom")
-    currentSequence.Loop = wasOriginallyLooped 
-    
-    RunService.Heartbeat:Wait()
-    startTime = workspace.DistributedGameTime
-    
-    recordingConnection = RunService.Heartbeat:Connect(function()
-        captureFrame(workspace.DistributedGameTime)
-    end)
-
-    track.Stopped:Wait()
-    
-    if recordingConnection then
-        recordingConnection:Disconnect()
-        recordingConnection = nil
-    end
-    
-    if wasOriginallyLooped then
-        track.Looped = true
-    end
-    
+local function onCharacterAdded(newChar)
+    character = newChar
+    local humanoid = character:WaitForChild("Humanoid")
+    local animator = humanoid:WaitForChild("Animator")
     isRecording = false
-    showConfirmGui(currentSequence)
-end)
+    defaultIds = {} 
+
+    local animateScript = character:WaitForChild("Animate", 5)
+    if animateScript then
+        for _, desc in ipairs(animateScript:GetDescendants()) do
+            if desc:IsA("Animation") then
+                local numId = string.match(desc.AnimationId, "%d+")
+                if numId then defaultIds[numId] = true end
+                defaultIds[desc.AnimationId] = true
+            end
+        end
+    end
+
+    animator.AnimationPlayed:Connect(function(track)
+        local animId = track.Animation.AnimationId
+        local numId = string.match(animId, "%d+")
+        
+        if (numId and defaultIds[numId]) or defaultIds[animId] then return end
+        
+        if isRecording then 
+            return 
+        end
+        
+        isRecording = true
+
+        sendNotification("Custom animation is detected, recording rn...")
+
+        local wasOriginallyLooped = track.Looped
+        
+        track:Stop()
+        track.Looped = false
+        track.TimePosition = 0 
+        track:Play()
+
+        currentSequence = Instance.new("KeyframeSequence")
+        currentSequence.Name = character.Name .. "_Dump_" .. (numId or "Custom")
+        currentSequence.Loop = wasOriginallyLooped 
+        
+        RunService.Heartbeat:Wait()
+        startTime = workspace.DistributedGameTime
+        
+        recordingConnection = RunService.Heartbeat:Connect(function()
+            captureFrame(workspace.DistributedGameTime)
+        end)
+
+        local stopConnection
+        
+        local function onAnimationEnded()
+            if not isRecording then return end 
+            
+            if stopConnection then 
+                stopConnection:Disconnect() 
+                stopConnection = nil
+            end
+            
+            if recordingConnection then
+                recordingConnection:Disconnect()
+                recordingConnection = nil
+            end
+            
+            if wasOriginallyLooped then
+                track.Looped = true
+            end
+            
+            isRecording = false
+            showConfirmGui(currentSequence)
+        end
+
+        stopConnection = track.Stopped:Connect(onAnimationEnded)
+        
+        if not track.IsPlaying then
+            onAnimationEnded()
+        end
+    end)
+end
+
+player.CharacterAdded:Connect(onCharacterAdded)
+
+if player.Character then
+    onCharacterAdded(player.Character)
+end
+
 showStartupWarning()
