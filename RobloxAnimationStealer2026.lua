@@ -176,7 +176,7 @@ local function showStartupWarning()
         bodyText.Text = "Pick the framerate cap\n\n" ..
                         "30 FPS (Recommended):\nDrops file size by 75%. Mathematically stable and prevents Studio lag.\n\n" ..
                         "UNCAPPED (Using your current FPS):\nCaptures raw physical data every engine tick. Creates massive file sizes."
-        
+
         closeBtn.Visible = false
 
         local fps30Btn = Instance.new("TextButton")
@@ -222,8 +222,8 @@ local function showConfirmGui(sequence)
     screenGui.Parent = playerGui
 
     local frame = Instance.new("Frame")
-    frame.Size = UDim2.new(0, 340, 0, 160)
-    frame.Position = UDim2.new(0.5, -170, 0.5, -80)
+    frame.Size = UDim2.new(0, 480, 0, 160)
+    frame.Position = UDim2.new(0.5, -240, 0.5, -80)
     frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
     frame.Parent = screenGui
 
@@ -251,6 +251,16 @@ local function showConfirmGui(sequence)
     yesBtn.Parent = frame
     Instance.new("UICorner", yesBtn).CornerRadius = UDim.new(0, 6)
 
+    local laterBtn = Instance.new("TextButton")
+    laterBtn.Size = UDim2.new(0, 140, 0, 45)
+    laterBtn.Position = UDim2.new(0.5, -70, 1, -65)
+    laterBtn.BackgroundColor3 = Color3.fromRGB(94, 0, 255)
+    laterBtn.Text = "LATER (Queue it)"
+    laterBtn.TextColor3 = Color3.new(1, 1, 1)
+    laterBtn.Font = Enum.Font.GothamBold
+    laterBtn.Parent = frame
+    Instance.new("UICorner", laterBtn).CornerRadius = UDim.new(0, 6)
+
     local noBtn = Instance.new("TextButton")
     noBtn.Size = UDim2.new(0, 140, 0, 45)
     noBtn.Position = UDim2.new(1, -160, 1, -65)
@@ -268,6 +278,12 @@ local function showConfirmGui(sequence)
         pcall(function()
             saveinstance(game.ReplicatedStorage.SavedAnims)
         end)
+        screenGui:Destroy()
+    end)
+
+    laterBtn.MouseButton1Click:Connect(function()
+        local storageFolder = getStorageFolder()
+        sequence.Parent = storageFolder
         screenGui:Destroy()
     end)
 
