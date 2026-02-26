@@ -12,6 +12,7 @@ local isRecording = false
 local recordingConnection = nil
 local currentSequence = nil
 local startTime = 0
+local recordInterval = 0
 
 local function getStorageFolder()
     local folder = ReplicatedStorage:FindFirstChild("SavedAnims")
@@ -171,7 +172,44 @@ local function showStartupWarning()
     btnCorner.Parent = closeBtn
 
     closeBtn.MouseButton1Click:Connect(function()
-        screenGui:Destroy()
+        title.Text = "⚙️ SELECT FRAMERATE"
+        bodyText.Text = "Pick the framerate cap\n\n" ..
+                        "30 FPS (Recommended):\nDrops file size by 75%. Mathematically stable and prevents Studio lag.\n\n" ..
+                        "UNCAPPED (Using your current FPS):\nCaptures raw physical data every engine tick. Creates massive file sizes."
+        
+        closeBtn.Visible = false
+
+        local fps30Btn = Instance.new("TextButton")
+        fps30Btn.Size = UDim2.new(0, 210, 0, 45)
+        fps30Btn.Position = UDim2.new(0, 30, 1, -60)
+        fps30Btn.BackgroundColor3 = Color3.fromRGB(40, 200, 40)
+        fps30Btn.Text = "30 FPS (OPTIMIZED)"
+        fps30Btn.TextColor3 = Color3.new(1, 1, 1)
+        fps30Btn.Font = Enum.Font.GothamBold
+        fps30Btn.TextSize = 14
+        fps30Btn.Parent = mainFrame
+        Instance.new("UICorner", fps30Btn).CornerRadius = UDim.new(0, 8)
+
+        local uncappedBtn = Instance.new("TextButton")
+        uncappedBtn.Size = UDim2.new(0, 210, 0, 45)
+        uncappedBtn.Position = UDim2.new(1, -240, 1, -60)
+        uncappedBtn.BackgroundColor3 = Color3.fromRGB(200, 40, 40)
+        uncappedBtn.Text = "UNCAPPED (HEARTBEAT)"
+        uncappedBtn.TextColor3 = Color3.new(1, 1, 1)
+        uncappedBtn.Font = Enum.Font.GothamBold
+        uncappedBtn.TextSize = 13
+        uncappedBtn.Parent = mainFrame
+        Instance.new("UICorner", uncappedBtn).CornerRadius = UDim.new(0, 8)
+
+        fps30Btn.MouseButton1Click:Connect(function()
+            recordInterval = 1 / 30
+            screenGui:Destroy()
+        end)
+
+        uncappedBtn.MouseButton1Click:Connect(function()
+            recordInterval = 0
+            screenGui:Destroy()
+        end)
     end)
 end
 
@@ -239,7 +277,7 @@ local function showConfirmGui(sequence)
     end)
 end
 
-local function captureFrame(currentTime)
+local function captureFrame(currentTime, activeMotors)
     if not character then return end 
 
     local relativeTime = currentTime - startTime
@@ -260,16 +298,14 @@ local function captureFrame(currentTime)
         return newPose
     end
 
-    for _, descendant in ipairs(character:GetDescendants()) do
-        if descendant:IsA("Motor6D") then
-            local part0 = descendant.Part0
-            local part1 = descendant.Part1
-            if part0 and part1 then
-                local pose0 = getPose(part0)
-                local pose1 = getPose(part1)
-                pose1.CFrame = descendant.Transform
-                pose1.Parent = pose0
-            end
+    for _, motor in ipairs(activeMotors) do
+        local part0 = motor.Part0
+        local part1 = motor.Part1
+        if part0 and part1 then
+            local pose0 = getPose(part0)
+            local pose1 = getPose(part1)
+            pose1.CFrame = motor.Transform
+            pose1.Parent = pose0
         end
     end
 
@@ -325,8 +361,21 @@ local function onCharacterAdded(newChar)
         RunService.Heartbeat:Wait()
         startTime = workspace.DistributedGameTime
         
+        local activeMotors = {}
+        for _, desc in ipairs(character:GetDescendants()) do
+            if desc:IsA("Motor6D") and desc.Part0 and desc.Part1 then
+                table.insert(activeMotors, desc)
+            end
+        end
+        
+        local lastCaptureTime = 0
+        
         recordingConnection = RunService.Heartbeat:Connect(function()
-            captureFrame(workspace.DistributedGameTime)
+            local currentTime = workspace.DistributedGameTime
+            if recordInterval == 0 or (currentTime - lastCaptureTime) >= recordInterval then
+                captureFrame(currentTime, activeMotors)
+                lastCaptureTime = currentTime
+            end
         end)
 
         local stopConnection
