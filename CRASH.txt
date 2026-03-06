@@ -1,0 +1,73 @@
+---- Minecraft Crash Report ----
+// Ooh. Shiny.
+
+Time: 2026-03-06 19:55:52
+Description: Initializing game
+
+java.lang.RuntimeException: It appears that you are using PojavLauncher, which is not supported when using Sodium. Please check your mods list.
+	at knot//net.caffeinemc.mods.sodium.client.compatibility.checks.PostLaunchChecks.onContextInitialized(PostLaunchChecks.java:24)
+	at knot//net.minecraft.class_1041.handler$zef000$sodium$postContextReady(class_1041.java:1148)
+	at knot//net.minecraft.class_1041.<init>(class_1041.java:119)
+	at knot//net.minecraft.class_3682.method_16038(class_3682.java:21)
+	at knot//net.minecraft.class_310.<init>(class_310.java:504)
+	at knot//net.minecraft.client.main.Main.main(Main.java:250)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:514)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at knot//net.caffeinemc.mods.sodium.client.compatibility.checks.PostLaunchChecks.onContextInitialized(PostLaunchChecks.java:24)
+	at knot//net.minecraft.class_1041.handler$zef000$sodium$postContextReady(class_1041.java:1148)
+	at knot//net.minecraft.class_1041.<init>(class_1041.java:119)
+	at knot//net.minecraft.class_3682.method_16038(class_3682.java:21)
+	at knot//net.minecraft.class_310.<init>(class_310.java:504)
+
+-- Initialization --
+Details:
+	Modules: 
+Stacktrace:
+	at knot//net.minecraft.client.main.Main.main(Main.java:250)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:514)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:72)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.21.4
+	Minecraft Version ID: 1.21.4
+	Operating System: Linux (amd64) version Android-11
+	Java Version: 21.0.1-internal, N/A
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 3913285632 bytes (3732 MiB) / 4194304000 bytes (4000 MiB) up to 4194304000 bytes (4000 MiB)
+	CPUs: 2
+	Graphics card #0 name: JasperLake [UHD Graphics]
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MiB): 256.00
+	Graphics card #0 deviceId: 0x4e55
+	Graphics card #0 versionInfo: unknown
+	Space in storage for jna.tmpdir (MiB): <path not set>
+	Space in storage for org.lwjgl.system.SharedLibraryExtractPath (MiB): <path not set>
+	Space in storage for io.netty.native.workdir (MiB): <path not set>
+	Space in storage for java.io.tmpdir (MiB): available: 9751.68, total: 19513.95
+	Space in storage for workdir (MiB): available: 9751.68, total: 19513.95
+	JVM Flags: 4 total; -Xms4000M -Xmx4000M -XX:ActiveProcessorCount=2 -Xbootclasspath/a:/storage/emulated/0/Android/data/net.kdt.pojavlaunch.debug/files/caciocavallo17/cacio-shared-1.18-SNAPSHOT.jar:/storage/emulated/0/Android/data/net.kdt.pojavlaunch.debug/files/caciocavallo17/cacio-tta-1.18-SNAPSHOT.jar
+	Launched Version: 1.21.4
+	Backend library: LWJGL version 3.3.3-snapshot
+	Backend API: Unknown
+	Window size: <not initialized>
+	GFLW Platform: x11
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: <disabled>
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Universe: 404
+	Type: Client (map_client.txt)
+	Locale: en
+	System encoding: UTF-8
+	File encoding: UTF-8
+	CPU: <unknown>
